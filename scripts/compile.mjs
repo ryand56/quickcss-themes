@@ -13,8 +13,8 @@ try {
             for (const item of items) {
                 const isDir = item.isDirectory();
                 if (isDir) {
-                    const manifestPath = `src/client/${item.name}/powercord_manifest.json`;
-                    const themePath = `src/client/${item.name}/theme.scss`;
+                    const manifestPath = `client/${item.name}/powercord_manifest.json`;
+                    const themePath = `client/${item.name}/theme.scss`;
 
                     if (filesToCompile.includes(manifestPath) || filesToCompile.includes(themePath)) {
                         fs.readFile(`src/client/${item.name}/powercord_manifest.json`, (err, manifest) => {
@@ -31,13 +31,12 @@ try {
                                 .replace("{version}", parsedManifest ? ` v${parsedManifest.version}` : "")
                                 .replace("{date}", date.toISOString().split("T")[0])}\n\n`;
                             templateString += compiled.css;
-                            fs.writeFile(`src/client/${item.name}/theme-compiled.css`, templateString, err => {
-                                if (err) throw new Error("Write failed.");
-                            });
+                            fs.writeFileSync(`src/client/${item.name}/theme-compiled.css`, templateString);
                         });
                     }
                 }
             }
+            console.log("Done");
         });
     });
 } catch (e) {
