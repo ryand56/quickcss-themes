@@ -43,7 +43,7 @@ try {
                                 .replace("{author}", parsedManifest && parsedManifest.author ? `${parsedManifest.author}\n` : "")
                                 .replace("{date}", date.toISOString().split("T")[0])}\n\n`;
                             templateString += compiled;
-                            fs.writeFileSync(`src/client/${item.name}/theme-compiled.css`, compiled);
+                            fs.writeFileSync(`src/client/${item.name}/theme-compiled.css`, templateString);
                         });
                     });
                 }
