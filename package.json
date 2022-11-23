@@ -1,0 +1,23 @@
+{
+  "name": "quickcss-themes",
+  "version": "1.0.0",
+  "description": "Common themes that are not accessible through any mod w/o theme support but has Quick CSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elementemerald/quickcss-themes.git"
+  },
+  "author": "elementemerald",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elementemerald/quickcss-themes/issues"
+  },
+  "homepage": "https://github.com/elementemerald/quickcss-themes#readme",
+  "devDependencies": {
+    "@types/sass": "^1.43.1",
+    "sass": "^1.56.1"
+  }
+}
