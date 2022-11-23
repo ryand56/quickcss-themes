@@ -19,7 +19,7 @@ jobs:
         with:
           filters: |
             themeChange:
-              - 'client/**'
+              - 'src/client/**'
           list-files: 'shell'
       - name: Setup Node.js 18
         if: steps.filter.outputs.themeChange == 'true'
