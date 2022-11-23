@@ -13,15 +13,15 @@ try {
             for (const item of items) {
                 const isDir = item.isDirectory();
                 if (isDir) {
-                    const manifestPath = `client/${item.name}/powercord_manifest.json`;
-                    const themePath = `client/${item.name}/theme.scss`;
+                    const manifestPath = `src/client/${item.name}/powercord_manifest.json`;
+                    const themePath = `src/client/${item.name}/theme.scss`;
 
                     if (filesToCompile.includes(manifestPath) || filesToCompile.includes(themePath)) {
-                        fs.readFile(`src/client/${item.name}/powercord_manifest.json`, (err, manifest) => {
+                        fs.readFile(manifestPath, (err, manifest) => {
                             if (err) console.log("Manifest could not be found. Skipping");
                             const parsedManifest = JSON.parse(manifest);
     
-                            const compiled = sass.compile(`src/client/${item.name}/theme.scss`);
+                            const compiled = sass.compile(themePath);
                             console.log(`${item.name} - Compilation successful`);
     
                             const date = new Date();
