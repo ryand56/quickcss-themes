@@ -1,0 +1,317 @@
+@charset "UTF-8";
+@import url("https://discordstyles.github.io/HorizontalServerList/HorizontalServerList.theme.css");
+@import url("https://discordstyles.github.io/HorizontalServerList/bottomhsl.css");
+:root {
+  --background: #010105;
+  --border: #706080;
+  --font: "IBM Plex Mono", monospace;
+  --font-size: 14px;
+  --small-font-size: 12px;
+  --separator: #161618;
+  --banner-display: none;
+}
+
+.theme-dark {
+  --background-primary: var(--background);
+  --background-secondary: var(--background);
+  --background-secondary-alt: var(--background);
+  --background-tertiary: var(--background);
+  --background-accent: var(--background);
+  --background-floating: var(--background);
+  --channeltextarea-background: var(--background);
+  --font-primary: var(--font);
+  --font-display: var(--font);
+  --font-headline: var(--font);
+  --font-code: var(--font);
+  --toast-background: var(--background);
+  --HSL-server-alignment: flex-start;
+}
+
+a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, html, iframe, img, ins, kbd, label, legend, li, object, ol, p, pre, q, s, samp, small, span, strike, strong, table, tbody, td, tfoot, th, thead, tr, tt, ul, var, .name-2m3Cms, .name-28HaxV, .item-3XjbnGO, .titleWrapper-24Kyzc h3 {
+  font-size: var(--font-size);
+}
+
+[class*=contents-] > *, [class*=username-], [class*=embedTitle-] {
+  font-size: var(--font-size);
+}
+
+[class*=botText-], [class*=textBadge-], [class*=roleName-], [class*=contents-], [class*=customStatusText-] {
+  font-size: var(--small-font-size);
+}
+
+[class*=userInfoBody-] [class*=text-sm-normal-], [class*=userInfoBody-] a, [class*=userInfoBody-] .commandMention {
+  font-size: var(--small-font-size);
+}
+[class*=userInfoBody-] [class*=emojiContainer-] img {
+  width: 16px;
+  height: 16px;
+}
+
+.selected-1Drb7Z .childWrapper-1j_1ub {
+  background-color: var(--background) !important;
+}
+.selected-1Drb7Z .childWrapper-1j_1ub path {
+  color: var(--border);
+}
+
+.sectionDivider-189lqb {
+  display: none;
+}
+
+.sidebar-1tnWFu .containerDefault-3TQ5YN {
+  padding: 5px;
+  padding-top: 10px;
+}
+.sidebar-1tnWFu .containerDefault-3TQ5YN .name-3BUDLf {
+  color: var(--border);
+}
+.sidebar-1tnWFu [class*=unread-] {
+  display: none;
+}
+.sidebar-1tnWFu [class*=unreadBar-] {
+  background-color: var(--separator);
+}
+
+[class*=sidebar-], [class*=chatContent-], [class*=members-], [class*=tabBody-] [class*=peopleColumn-] {
+  margin: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px !important;
+}
+
+[class*=peopleColumn-] div[aria-label=Message]::before {
+  content: "Message";
+  color: var(--border);
+}
+[class*=peopleColumn-] div[aria-label=Message] svg {
+  display: none;
+}
+
+[class*=members-] [class*=membersGroup-].container-q97qHp {
+  color: var(--border);
+  margin: 5px;
+  text-align: center;
+}
+
+[class*=accountProfileCard-], [class*=userPopout-], [class*=channelTextArea-], [class*=embedFull-] {
+  border: 1px solid var(--border) !important;
+  border-radius: 10;
+}
+
+.searchBar-2aylmZ, .searchBar-3TnChZ .searchBarComponent-3N7dCG {
+  border-bottom: 1px solid var(--separator);
+  padding: 5px;
+  border-radius: 0;
+}
+
+[class*=searchBar-] [class*=searchBarComponent-] {
+  font-size: var(--small-font-size);
+}
+
+.group-spacing-16 [class*=groupStart-] {
+  margin-top: 1.2rem;
+}
+
+.group-spacing-0 [class*=groupStart-] {
+  margin-top: 0.625rem;
+}
+
+section[aria-label="Channel header"] {
+  margin: 10px;
+  margin-bottom: 0;
+  height: 30px;
+  align-self: center;
+}
+
+[class*=animatedContainer-] {
+  display: var(--banner-display);
+  border-radius: 0;
+}
+
+[class*=botTag-] {
+  border-radius: 0 !important;
+}
+[class*=botTag-] svg {
+  display: none;
+}
+
+button[aria-label="Open GIF picker"], button[aria-label="Open sticker picker"], button[aria-label="Select emoji"], [class*=attachButton-] {
+  margin: 0;
+  padding: 0;
+}
+button[aria-label="Open GIF picker"] svg, button[aria-label="Open sticker picker"] svg, button[aria-label="Select emoji"] svg, [class*=attachButton-] svg {
+  display: none;
+}
+button[aria-label="Open GIF picker"]::before, button[aria-label="Open sticker picker"]::before, button[aria-label="Select emoji"]::before, [class*=attachButton-]::before {
+  color: var(--border);
+  display: block;
+  text-align: center;
+}
+
+button[aria-label="Open GIF picker"]::before {
+  content: "[GIF]";
+}
+
+button[aria-label="Open sticker picker"]::before {
+  content: "[Sticker]";
+}
+
+button[aria-label="Select emoji"] {
+  margin-right: 10px;
+}
+button[aria-label="Select emoji"] [class*=sprite-] {
+  display: none;
+}
+button[aria-label="Select emoji"]::before {
+  content: "[Emoji]";
+}
+
+[class*=attachButton-]::before {
+  content: "+";
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+[class*=content-] div[aria-label=Forum] svg, [class*=content-] div[aria-label="Text (Limited)"] svg, [class*=content-] div[aria-label=Text] svg, [class*=content-] div[aria-label=Voice] svg, [class*=content-] div[aria-label="Voice (Locked)"] svg, [class*=content-] div[aria-label=Announcements] svg, [class*=content-] div[aria-label=Rules] svg, [class*=content-] div[aria-label=Stage] svg, [class*=content-] div[aria-label="Text (Active Threads)"] svg {
+  display: none;
+}
+[class*=content-] div[aria-label=Forum]::before, [class*=content-] div[aria-label="Text (Limited)"]::before, [class*=content-] div[aria-label=Text]::before, [class*=content-] div[aria-label=Voice]::before, [class*=content-] div[aria-label="Voice (Locked)"]::before, [class*=content-] div[aria-label=Announcements]::before, [class*=content-] div[aria-label=Rules]::before, [class*=content-] div[aria-label=Stage]::before, [class*=content-] div[aria-label="Text (Active Threads)"]::before {
+  color: var(--border);
+  display: block;
+  text-align: left;
+  max-width: 36px;
+}
+[class*=content-] div[aria-label=Forum]::before {
+  content: "[👥]";
+}
+[class*=content-] div[aria-label="Text (Limited)"]::before {
+  content: "[💬🔓]";
+}
+[class*=content-] div[aria-label=Text]::before {
+  content: "[💬]";
+}
+[class*=content-] div[aria-label=Voice]::before {
+  content: "[🔊]";
+}
+[class*=content-] div[aria-label="Voice (Locked)"]::before {
+  content: "[🔊🔒]";
+}
+[class*=content-] div[aria-label=Announcements]::before {
+  content: "[📢]";
+}
+[class*=content-] div[aria-label=Rules]::before {
+  content: "[📜]";
+}
+[class*=content-] div[aria-label=Stage]::before {
+  content: "[🧿]";
+}
+[class*=content-] div[aria-label="Text (Active Threads)"]::before {
+  content: "[🧵]";
+}
+
+[class*=messagesWrapper-] ::-webkit-scrollbar {
+  width: 10px;
+}
+
+[class*=progressBar-][class*=bar-] {
+  display: var(--banner-display);
+  margin: 0;
+}
+
+ul[aria-label=Channels] [class*=progressBarContainer-], ul[aria-label=Channels] [class*=divider-] {
+  display: var(--banner-display);
+}
+ul[aria-label=Channels] div[style="height: 84px;"] {
+  display: var(--banner-display);
+}
+
+[class*=communityInfoContainer-] {
+  display: none;
+}
+
+[class*=repliedMessage-] [class*=repliedTextPreview-] {
+  margin-left: 3px;
+}
+
+section[aria-label="User area"] {
+  border-top: 1px solid var(--border);
+}
+section[aria-label="User area"] .hoverRoll-2XwpoF * {
+  font-size: var(--small-font-size);
+}
+
+[class*=markup-] code {
+  background-color: var(--separator);
+  border-radius: 5px;
+}
+
+[class*=compact-] [class*=timestamp-] {
+  margin-right: 10px;
+  width: 3.3rem;
+}
+
+[class*=message-][class*=compact-] [class*=avatar-] {
+  margin-right: 5px;
+}
+
+[class*=toolbar-] div[aria-label=Threads], [class*=toolbar-] div[aria-label="Notification Settings"], [class*=toolbar-] div[aria-label="Pinned Messages"], [class*=toolbar-] div[aria-label="Hide Member List"], [class*=toolbar-] div[aria-label="Show Member List"], [class*=toolbar-] div[aria-label=Inbox] {
+  height: fit-content;
+}
+[class*=toolbar-] div[aria-label=Threads] svg, [class*=toolbar-] div[aria-label="Notification Settings"] svg, [class*=toolbar-] div[aria-label="Pinned Messages"] svg, [class*=toolbar-] div[aria-label="Hide Member List"] svg, [class*=toolbar-] div[aria-label="Show Member List"] svg, [class*=toolbar-] div[aria-label=Inbox] svg {
+  display: none;
+  top: 0;
+  bottom: 0;
+}
+[class*=toolbar-] div[aria-label=Threads]::before, [class*=toolbar-] div[aria-label="Notification Settings"]::before, [class*=toolbar-] div[aria-label="Pinned Messages"]::before, [class*=toolbar-] div[aria-label="Hide Member List"]::before, [class*=toolbar-] div[aria-label="Show Member List"]::before, [class*=toolbar-] div[aria-label=Inbox]::before {
+  content: attr(aria-label);
+  display: block;
+  text-align: center;
+}
+[class*=toolbar-] div[aria-label="Notification Settings"]::before {
+  content: "Notifications";
+}
+[class*=toolbar-] div[aria-label="Hide Member List"]::before, [class*=toolbar-] div[aria-label="Show Member List"]::before {
+  content: "Members";
+}
+[class*=toolbar-] div[aria-label="Pinned Messages"]::before {
+  content: "Pins";
+}
+[class*=toolbar-] div[aria-label="Pinned Messages"] span {
+  display: none;
+}
+[class*=toolbar-] [class*=search-] {
+  order: 1;
+  height: fit-content;
+  margin-right: 5px;
+}
+[class*=toolbar-] [class*=search-] [class*=searchBar-] {
+  width: fit-content;
+  text-align: center;
+}
+
+[class*=peopleListItem-] {
+  border-top: none;
+}
+
+[class*=embed-] {
+  margin-top: 5px;
+}
+
+#---new-messages-bar {
+  display: none;
+}
+
+.pronoundb-pronouns * {
+  filter: brightness(75%);
+}
+
+[class*=guilds-] ul[role=tree] [class*=scrollerBase-] {
+  left: 5px;
+}
+
+.name-3BUDLf, [class*=peopleColumn-] [class*=title-], [class*=membersGroup-][class*=container-], [class*=eyebrow-] {
+  text-transform: capitalize;
+}
+
+[class*=channelTextArea] button[aria-label="Send a gift"], ul[aria-label="Direct Messages"] li[aria-posinset="3"], a[href="https://support.discord.com"] {
+  display: none;
+}
