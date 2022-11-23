@@ -1,7 +1,11 @@
 import * as fs from "fs";
 import sass from "sass";
 
-const filesToCompile = process.argv.slice(2);
+const compileTheme = (name, themePath, manifest) => {
+    const compiled = sass.compile(themePath);
+    console.log(`${name} - Compilation successful`);
+    return compiled.css;
+};
 
 try {
     // Load in the template first
@@ -15,28 +19,35 @@ try {
                 if (isDir) {
                     const manifestPath = `src/client/${item.name}/powercord_manifest.json`;
                     const themePath = `src/client/${item.name}/theme.scss`;
+                    const compiledPath = `src/client/${item.name}/theme-compiled.css`;
 
-                    if (filesToCompile.includes(manifestPath) || filesToCompile.includes(themePath)) {
-                        fs.readFile(manifestPath, (err, manifest) => {
-                            if (err) console.log("Manifest could not be found. Skipping");
-                            const parsedManifest = JSON.parse(manifest);
-    
-                            const compiled = sass.compile(themePath);
-                            console.log(`${item.name} - Compilation successful`);
-    
+                    fs.readFile(manifestPath, (err, manifest) => {
+                        if (err) console.log("Manifest could not be found. Skipping");
+                        const parsedManifest = JSON.parse(manifest);
+                        
+                        fs.readFile(compiledPath, (_, cached) => {
+                            let compiled = compileTheme(item.name, themePath, parsedManifest);
+                            const cache = cached?.toString("utf8");
+                            // Check for changes
+                            if (compiled === cache) {
+                                console.log(`${item.name} - No changes`);
+                                return;
+                            }
+
+                            console.log(`${item.name} - Changes`);
                             const date = new Date();
                             let templateString = template.toString("utf8");
                             templateString = `${templateString
                                 .replace("{name}", item.name)
-                                .replace("{version}", parsedManifest ? ` v${parsedManifest.version}` : "")
+                                .replace("{version}", parsedManifest && parsedManifest.version ? ` v${parsedManifest.version}` : "")
+                                .replace("{author}", parsedManifest && parsedManifest.author ? `${parsedManifest.author}\n` : "")
                                 .replace("{date}", date.toISOString().split("T")[0])}\n\n`;
-                            templateString += compiled.css;
-                            fs.writeFileSync(`src/client/${item.name}/theme-compiled.css`, templateString);
+                            templateString += compiled;
+                            fs.writeFileSync(`src/client/${item.name}/theme-compiled.css`, compiled);
                         });
-                    }
+                    });
                 }
             }
-            console.log("Done");
         });
     });
 } catch (e) {

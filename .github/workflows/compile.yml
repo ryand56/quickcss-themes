@@ -20,7 +20,6 @@ jobs:
           filters: |
             themeChange:
               - 'src/client/**'
-          list-files: 'shell'
       - name: Setup Node.js 18
         if: steps.filter.outputs.themeChange == 'true'
         uses: actions/setup-node@v3
@@ -31,7 +30,7 @@ jobs:
         run: npm ci
       - name: Compile
         if: steps.filter.outputs.themeChange == 'true'
-        run: node scripts/compile.mjs ${{ steps.filter.outputs.themeChange_files }}
+        run: node scripts/compile.mjs
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
