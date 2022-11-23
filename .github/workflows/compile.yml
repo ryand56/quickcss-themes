@@ -27,3 +27,5 @@ jobs:
           token: ${{ secrets.DEPLOY_TOKEN }}
           folder: src
           commit-message: 'Deploy latest changes'
+          git-config-name: github-actions[bot]
+          git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
