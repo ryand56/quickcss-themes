@@ -35,13 +35,12 @@ try {
                             }
 
                             console.log(`${item.name} - Changes`);
-                            const date = new Date();
                             let templateString = template.toString("utf8");
                             templateString = `${templateString
                                 .replace("{name}", item.name)
                                 .replace("{version}", parsedManifest && parsedManifest.version ? ` v${parsedManifest.version}` : "")
                                 .replace("{author}", parsedManifest && parsedManifest.author ? `${parsedManifest.author}\n` : "")
-                                .replace("{date}", date.toISOString().split("T")[0])}\n\n`;
+                                .replace("{date}", parsedManifest.updated ?? "unknown")}\n\n`;
                             templateString += compiled;
                             fs.writeFileSync(`src/client/${item.name}/theme-compiled.css`, templateString);
                         });
